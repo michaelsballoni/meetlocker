@@ -1,2 +1,2 @@
-# ballonift
-BalloniFT is a secure file transfer web client/server application
+# meatlocker
+Balloni Meat Locker is a file transfer application.
