@@ -10,7 +10,7 @@ namespace lib
     {
         public static async Task<string?> store(string pwd, string filename, Stream file)
         {
-            string key = BitConverter.ToString(RandomNumberGenerator.GetBytes(64));
+            string key = Convert.ToHexString(RandomNumberGenerator.GetBytes(64));
             string zip_file_path = getFilePath(key, pwd);
 
             bool success = false;
@@ -45,10 +45,10 @@ namespace lib
 
         private static string getFilePath(string key, string pwd)
         {
-            string filename = 
-                BitConverter.ToString(SHA512.HashData(Encoding.Unicode.GetBytes(key + pwd))) + ".dat";
+            string filename =
+                Convert.ToHexString(SHA512.HashData(Encoding.Unicode.GetBytes(key + pwd))) + ".dat";
 
-            string file_path = Path.Combine(filename, sm_dirPath);
+            string file_path = Path.Combine(sm_dirPath, filename);
             return file_path;
         }
 
